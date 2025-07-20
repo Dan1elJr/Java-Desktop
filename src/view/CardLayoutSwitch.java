@@ -13,10 +13,15 @@ public class CardLayoutSwitch extends JFrame{
 	private JPanel impressao = new TelaImpressao();
 
 	CardLayoutSwitch() {
+		
+		//Create frame
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        
+        //Create CardLayout
         CardLayout cardLayout = new CardLayout();
+        
+        //Create Panel
         JPanel cardPanel = new JPanel();
         cardPanel.setLayout(cardLayout);
 
@@ -31,17 +36,22 @@ public class CardLayoutSwitch extends JFrame{
         cardPanel.add(impressao, "CardTwo");
 
         // Add buttons to switch cards
-        JPanel buttonPanel = new JPanel();
+        
         JButton showCardOneButton = new JButton("Next");
         showCardOneButton.addActionListener(e -> cardLayout.next(cardPanel));
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(showCardOneButton);
+        
         
         //JButton showCardTwoButton = new JButton("Show Card Two");
         //showCardTwoButton.addActionListener(e -> cardLayout.show(cardPanel, "CardTwo"));
         
-        buttonPanel.add(showCardOneButton);
         
-       // buttonPanel.add(showCardTwoButton);
-
+        
+        // buttonPanel.add(showCardTwoButton);
+        
+        //Render frame
+        
         frame.add(cardPanel, BorderLayout.CENTER);
         frame.add(buttonPanel, BorderLayout.SOUTH);
 
